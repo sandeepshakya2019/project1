@@ -1,0 +1,7 @@
+.form {
+  border: 1px solid grey;
+}
+.inputerror {
+  margin-top: 20px;
+  color: red;
+}

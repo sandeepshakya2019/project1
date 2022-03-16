@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// import the react componets
+import React, { useState } from "react";
+// import the css file
+import "./App.css";
+// import the display user data compoents
+import DisplayUserData from "./components/DisplayUserData";
+// import thr form
+import Form from "./components/Form";
 
 function App() {
+  // Defining state
+  const [getuserData, setgetuserData] = useState([]);
+  const [getapidata, setgetapidata] = useState([]);
+
+  const setuserdata = (data) => {
+    setgetuserData(data);
+  };
+  const setapidata = (apidata) => {
+    setgetapidata(apidata);
+  };
+
+  // console.log(getuserData);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to the Horoscope ! </h1>
+      <Form setdata={setuserdata} setapidata={setapidata} />
+      <DisplayUserData userdata={getuserData} apidata={getapidata} />
+
+      <br />
     </div>
   );
 }
